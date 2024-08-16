@@ -1,6 +1,7 @@
 {% extends 'my_blog_app/base.html' %}
 
 {% block content %}
+<header> THIS WILL BE ON TOP NO MATTER WHAT </header>
 
 {% if not user.is_authenticated %}
 
@@ -14,5 +15,10 @@
 <a href="{% url 'blog_logout' %}">Logout</a>
 
 {% endif %}
+<article>
+    <h1> kljdlaskjdaskd</h1>
+    <p> asdoiasjdoasijdoaisdj</p>
+</article>
+<footer> THIS IS SOMEWHAT LOWER </footer>
 
 {% endblock content %}
