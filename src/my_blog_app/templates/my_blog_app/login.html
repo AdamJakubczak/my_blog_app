@@ -1,0 +1,18 @@
+{% extends 'my_blog_app/base.html' %}
+
+{% block content %}
+<div class="login-wrapper">
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}
