@@ -1,27 +1,28 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth import login, authenticate, logout
+from .forms import PostForm
+from .models import Post
 
-posts = [
-    {
-        'post_title' : 'title 1',
-        'post_content' : 'post content for the first item',
-        'post_author' : 'Adam Jakubczak',
-        'post_date' : '23.10.2024'
-    },
-    {
-        'post_title' : 'title 2',
-        'post_content' : 'post content for the second item',
-        'post_author' : 'Oliwia Listwenik',
-        'post_date' : '29.10.2024'
-    },
+def add_post(request):
 
-]
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.post_author = request.user
+            post.save()
+        
+        return redirect('blog_index')
+    
+    else:
+        form = PostForm()
 
+    return render(request, 'my_blog_app/add_post.html', {'form' : form})
 
 def index(request):
 
     context = {
-        'posts' : posts
+        'posts' : Post.objects.all()
     }
     
     return render(request, 'my_blog_app/index.html', context)
