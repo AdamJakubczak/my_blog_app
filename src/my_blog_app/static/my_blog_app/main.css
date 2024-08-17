@@ -5,7 +5,7 @@
     --stdpadding: 10px;
     --stdmargin: 10px;
     --txtwhite: white;
-    --txtorange: #ffd000;
+    --txtorange: #ffa600;
 }
 
 body {
@@ -51,6 +51,10 @@ body {
     padding: var(--stdpadding);
     margin-bottom: var(--stdmargin);
 
+}
+
+.article h1 {
+    color: var(--txtorange);
 }
 
 .login-wrapper {
@@ -109,6 +113,7 @@ body {
     flex-direction: column;
     padding: var(--stdpadding)
 }
+
 
 .reg-form p {
     display: flex;

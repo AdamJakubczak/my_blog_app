@@ -5,7 +5,13 @@ from .models import Post
 
 def register(request):
 
-    form = UserRegistrationForm()
+    if request.method == 'POST':
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('blog_login')
+    else:
+        form = UserRegistrationForm()
 
     return render(request, 'my_blog_app/register.html', {'form' : form})
 
@@ -17,9 +23,7 @@ def add_post(request):
             post = form.save(commit=False)
             post.post_author = request.user
             post.save()
-        
-        return redirect('blog_index')
-    
+            return redirect('blog_index')
     else:
         form = PostForm()
 
