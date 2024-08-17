@@ -4,9 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'my_blog_app/main.css' %}">
+
+
     <title>Document</title>
 </head>
 <body>
+    {% if not user.is_authenticated %}
+
+    <div class="navbar-wrapper">
+        <nav class="nav-left">
+            <a href="{% url 'blog_index' %}">Home</a>
+        </nav>
+        <nav class="nav-right">
+            <a href="{% url 'blog_login' %}">LogIn</a>
+            <a href="#">Register</a>
+        </nav>
+    </div>
+
+    {% else %}
+
+    <div class="navbar-wrapper">
+        <nav class="nav-left">
+            <a href="{% url 'blog_index' %}">Home</a>
+        </nav>
+        <nav class="nav-right">
+            <a href="{% url 'blog_logout' %}">Logout</a>
+            <a href="{% url 'add_post' %}">Add Post!</a>
+        </nav>
+    </div>
+
+    {% endif %}
+
     {% block content %}
 
     {% endblock content %}    

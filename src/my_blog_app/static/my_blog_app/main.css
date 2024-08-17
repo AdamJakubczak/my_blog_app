@@ -1,0 +1,90 @@
+:root {
+    --font: 'JetBrains Mono', monospace;
+    --bgcolor: #f5f5f5;
+    --bgdark: #333;
+    --stdpadding: 10px;
+    --stdmargin: 10px;
+    --txtwhite: white;
+    --txtorange: #ffd000;
+}
+
+body {
+    font-family: var(--font);
+    background-color: var(--bgcolor);
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--stdpadding);
+    border: 2px solid;
+    background-color: var(--bgdark);
+    margin-bottom: var(--stdmargin);
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    padding: var(--stdpadding);
+    gap: 20px;
+}
+
+.navbar-wrapper a {
+    text-decoration: none;
+    color: var(--txtwhite)
+}
+
+.navbar-wrapper a:hover {
+    color: var(--txtorange)
+}
+
+.article-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.article {
+    border: 2px solid;
+    width: 50%;
+    padding: var(--stdpadding);
+    margin-bottom: var(--stdmargin);
+
+}
+
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid;
+    padding: 30px;
+}
+
+.usrnm, .pswrd {
+    display: flex;
+    flex-direction: column;
+    padding: var(--stdpadding);
+}
+
+.submit-button {
+    cursor: pointer;
+    width: 50%;
+    height: 40px;
+    align-self: center;
+    margin-top: 10px;
+    background-color: var(--bgdark);
+    color: var(--txtwhite);
+    font-family: var(--font);
+    border: none;
+    border-radius: 5px;
+}
+
+.submit-button:hover {
+    color: var(--txtorange)
+}
+
