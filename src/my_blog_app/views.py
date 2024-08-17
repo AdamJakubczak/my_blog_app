@@ -1,10 +1,30 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth import login, authenticate, logout
 
+posts = [
+    {
+        'post_title' : 'title 1',
+        'post_content' : 'post content for the first item',
+        'post_author' : 'Adam Jakubczak',
+        'post_date' : '23.10.2024'
+    },
+    {
+        'post_title' : 'title 2',
+        'post_content' : 'post content for the second item',
+        'post_author' : 'Oliwia Listwenik',
+        'post_date' : '29.10.2024'
+    },
+
+]
+
 
 def index(request):
+
+    context = {
+        'posts' : posts
+    }
     
-    return render(request, 'my_blog_app/index.html')
+    return render(request, 'my_blog_app/index.html', context)
 
 def user_login(request):
 
