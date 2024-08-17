@@ -1,7 +1,13 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth import login, authenticate, logout
-from .forms import PostForm
+from .forms import PostForm, UserRegistrationForm
 from .models import Post
+
+def register(request):
+
+    form = UserRegistrationForm()
+
+    return render(request, 'my_blog_app/register.html', {'form' : form})
 
 def add_post(request):
 

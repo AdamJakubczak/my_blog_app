@@ -1,0 +1,12 @@
+{% extends 'my_blog_app/base.html'%}
+
+{% block content %}
+<div class="reg-form-wrapper">
+    <form class="reg-form" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="submit-button" type="submit">Register</button>
+    </form>
+</div>
+
+{% endblock content %}
