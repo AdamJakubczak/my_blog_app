@@ -28,6 +28,7 @@
 
     <div class="navbar-wrapper">
         <nav class="nav-left">
+            <a href="#">Hi! {{ user.first_name }}</a>
             <a href="{% url 'blog_index' %}">Home</a>
         </nav>
         <nav class="nav-right">
@@ -36,6 +37,14 @@
         </nav>
     </div>
 
+    {% endif %}
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="msg-wrapper">
+                <p class="msgbox">{{ message }}</p>
+            </div>
+        {% endfor %}
     {% endif %}
 
     {% block content %}

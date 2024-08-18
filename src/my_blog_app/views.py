@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth import login, authenticate, logout
+from django.contrib import messages
 from .forms import PostForm, UserRegistrationForm
 from .models import Post
 
@@ -9,6 +10,7 @@ def register(request):
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Account created!')
             return redirect('blog_login')
     else:
         form = UserRegistrationForm()
@@ -23,6 +25,7 @@ def add_post(request):
             post = form.save(commit=False)
             post.post_author = request.user
             post.save()
+            messages.success(request, 'Post added!')
             return redirect('blog_index')
     else:
         form = PostForm()

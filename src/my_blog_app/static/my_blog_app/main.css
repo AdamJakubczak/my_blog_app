@@ -138,3 +138,18 @@ body {
 .reg-form ul {
     display: none;
 }
+
+.msg-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.msgbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    height: 60px;
+    width: 600px;
+    color: var(--txtorange);
+}
