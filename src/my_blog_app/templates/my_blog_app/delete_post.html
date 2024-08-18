@@ -1,0 +1,17 @@
+{% extends 'my_blog_app/base.html' %}
+
+{% block content %}
+
+
+<div class="delete-wrapper">
+    <form method="post">
+        {% csrf_token %}
+        <p>You are about to delete Your post. Ya sure?</p>
+        <div class="delf-buttons">
+            <button class="submit-button" type="submit">Yas, delete!</button>
+            <a class="submit-link" href="{% url 'blog_index' %}">Nah, go home!</a>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}

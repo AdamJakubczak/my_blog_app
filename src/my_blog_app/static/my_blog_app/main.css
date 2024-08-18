@@ -6,6 +6,8 @@
     --stdmargin: 10px;
     --txtwhite: white;
     --txtorange: #ffa600;
+    --txtgreyish: #cac9c9;
+
 }
 
 body {
@@ -57,6 +59,24 @@ body {
     color: var(--txtorange);
 }
 
+.post-ad {
+    color: var(--txtgreyish);
+}
+
+.post-delete {
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+    background-color: var(--bgdark);
+    text-decoration: none;
+    text-align: center;
+    font-size: 10px;
+}
+
+.post-delete:hover {
+    color: var(--txtorange)
+}
+
 .login-wrapper {
     display: flex;
     justify-content: center;
@@ -87,9 +107,8 @@ body {
 
 .submit-button {
     cursor: pointer;
-    width: 50%;
+    width: 40%;
     height: 40px;
-    align-self: center;
     margin-top: 10px;
     background-color: var(--bgdark);
     color: var(--txtwhite);
@@ -153,3 +172,70 @@ body {
     width: 600px;
     color: var(--txtorange);
 }
+
+.post-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  
+.post-wrapper div {
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    padding: 10px;
+}
+
+.post-form {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid;
+    padding: var(--stdpadding);
+}
+
+.post-form input {
+    height: 25px;
+}
+
+textarea {
+    resize: none;
+}
+
+.delete-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.delete-wrapper form {
+    border: 2px solid;
+    display: flex;
+    flex-direction: column;
+    padding: var(--stdpadding);
+}
+
+.delf-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px
+}
+
+.submit-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 40%;
+    height: 40px;
+    margin-top: 10px;
+    background-color: var(--bgdark);
+    color: var(--txtwhite);
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 100;
+    font-size: 14px;
+}
+
+.submit-link:hover {
+    color: var(--txtorange)
+}
+
+

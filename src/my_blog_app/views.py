@@ -1,8 +1,24 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from .forms import PostForm, UserRegistrationForm
 from .models import Post
+
+def delete_post(request, post_id):
+
+    post = get_object_or_404(Post, post_id=post_id)
+
+    if post.post_author != request.user:
+        messages.error(request, 'Not Your post! Can\'t touch this')
+        return redirect('blog_index')
+    
+    if request.method == 'POST':
+        post.delete()
+        messages.success(request, 'Post removed :(')
+        return redirect('blog_index')
+    
+    return render(request, 'my_blog_app/delete_post.html', {'post' : post})
+        
 
 def register(request):
 
@@ -48,6 +64,7 @@ def user_login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
+            messages.success(request,'Henlow!')
             return redirect('blog_index')
     
     return render(request, 'my_blog_app/login.html')
@@ -55,4 +72,5 @@ def user_login(request):
 
 def user_logout(request):
     logout(request)
+    messages.success(request, 'Logged out :(')
     return redirect('blog_index')
