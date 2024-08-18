@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
+from django.core.paginator import Paginator
 from .forms import PostForm, UserRegistrationForm
 from .models import Post
 
@@ -50,11 +51,14 @@ def add_post(request):
 
 def index(request):
 
-    context = {
-        'posts' : Post.objects.all()
-    }
+    posts = Post.objects.all()
+    page_num = request.GET.get('page', 1)
+
+    paginator = Paginator(posts, 3)
+
+    page_obj = paginator.page(page_num)
     
-    return render(request, 'my_blog_app/index.html', context)
+    return render(request, 'my_blog_app/index.html', {'page_obj' : page_obj})
 
 def user_login(request):
 

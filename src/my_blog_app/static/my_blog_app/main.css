@@ -107,6 +107,7 @@ body {
 
 .submit-button {
     cursor: pointer;
+    align-self: center;
     width: 40%;
     height: 40px;
     margin-top: 10px;
@@ -236,6 +237,20 @@ textarea {
 
 .submit-link:hover {
     color: var(--txtorange)
+}
+
+.pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: var(--stdpadding);
+}
+
+.pagination {
+    padding: var(--stdpadding);
+}
+
+.pagination a {
+    text-decoration: none;
 }
 
 
