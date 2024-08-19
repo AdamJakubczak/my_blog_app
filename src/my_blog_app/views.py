@@ -28,9 +28,9 @@ def edit_post(request, post_id):
 
 
 
-def delete_post(request, post_id):
+def delete_post(request, id):
 
-    post = get_object_or_404(Post, post_id=post_id)
+    post = get_object_or_404(Post, post_id=id)
 
     if post.post_author != request.user:
         messages.error(request, 'Not Your post! Can\'t touch this')
@@ -101,10 +101,3 @@ def user_logout(request):
     logout(request)
     messages.success(request, 'Logged out :(')
     return redirect('blog_index')
-
-def testing_stuff(request):
-
-    if request.method == 'POST':
-        print(request.POST.keys())
-
-    return render(request, 'my_blog_app/testing_stuff.html')

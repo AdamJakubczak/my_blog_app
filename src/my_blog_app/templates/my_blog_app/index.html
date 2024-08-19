@@ -10,7 +10,7 @@
         <p>{{ post.post_content }}</p>
         {% if post.post_author == request.user %}
         <div class="buttons-wrapper">
-            <a class="post-edit" href="{% url 'delete_post' post.post_id %}"> Delete </a>
+            <a class="post-edit" href="{% url 'delete_post' id=post.post_id %}"> Delete </a>
             <a class="post-edit" href="{% url 'edit_post' post.post_id %}" class="post-edit"> Edit </a>
         </div>
         {% endif %}
