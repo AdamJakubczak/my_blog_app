@@ -23,7 +23,7 @@ body {
     padding: var(--stdpadding);
     border: 2px solid;
     background-color: var(--bgdark);
-    margin-bottom: var(--stdmargin);
+    margin-bottom: 40px;
 }
 
 .nav-left, .nav-right {
@@ -63,7 +63,7 @@ body {
     color: var(--txtgreyish);
 }
 
-.post-delete {
+.post-edit {
     border-radius: 5px;
     color: white;
     padding: 5px;
@@ -73,7 +73,7 @@ body {
     font-size: 10px;
 }
 
-.post-delete:hover {
+.post-edit:hover {
     color: var(--txtorange)
 }
 
@@ -253,4 +253,33 @@ textarea {
     text-decoration: none;
 }
 
+.edit-form-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.edit-post-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid;
+    padding: var(--stdpadding);
+}
+
+.edit-post-form textarea {
+    width: 800px;
+    margin: 10px;
+    margin-top: 0;
+}
+
+.edit-post-form label {
+    align-self: self-start;
+    margin: 10px;
+    margin-bottom: 0;
+}
+
+.buttons-wrapper {
+    display: flex;
+    gap: 5px;
+}
 

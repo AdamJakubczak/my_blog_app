@@ -5,6 +5,29 @@ from django.core.paginator import Paginator
 from .forms import PostForm, UserRegistrationForm
 from .models import Post
 
+
+
+def edit_post(request, post_id):
+
+    post = get_object_or_404(Post, post_id=post_id)
+
+    old_content = post.post_content
+
+    if post.post_author != request.user:
+        messages.error(request, 'Not Your post! Can\'t touch this')
+        return redirect('blog_index')
+    
+    if request.method == 'POST':
+        content = request.POST.get('updated_content')
+        post.post_content = content
+        post.save()
+        messages.success(request, 'Post modified!')
+        return redirect('blog_index')
+    
+    return render(request, 'my_blog_app/edit.html', {'old_content' : old_content})
+
+
+
 def delete_post(request, post_id):
 
     post = get_object_or_404(Post, post_id=post_id)
@@ -18,7 +41,7 @@ def delete_post(request, post_id):
         messages.success(request, 'Post removed :(')
         return redirect('blog_index')
     
-    return render(request, 'my_blog_app/delete_post.html', {'post' : post})
+    return render(request, 'my_blog_app/delete_post.html')
         
 
 def register(request):
@@ -78,3 +101,10 @@ def user_logout(request):
     logout(request)
     messages.success(request, 'Logged out :(')
     return redirect('blog_index')
+
+def testing_stuff(request):
+
+    if request.method == 'POST':
+        print(request.POST.keys())
+
+    return render(request, 'my_blog_app/testing_stuff.html')

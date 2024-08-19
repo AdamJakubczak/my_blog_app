@@ -1,0 +1,14 @@
+{% extends 'my_blog_app/base.html' %}
+
+{% block content %}
+
+<div class="edit-form-wrapper">
+    <form class="edit-post-form" method="post">
+        {% csrf_token %}
+        <label for="New content"> New content: </label>
+        <textarea name="updated_content" id="updated_content" rows="10" cols="40"> {{ old_content }} </textarea>
+        <button class="submit-button" type="submit"> Edit this boi! </button>
+    </form>
+</div>
+
+{% endblock content %}

@@ -9,7 +9,10 @@
         <p class="post-ad">{{ post.post_author }} on {{ post.post_date | date:"M d, Y" }}</p>
         <p>{{ post.post_content }}</p>
         {% if post.post_author == request.user %}
-        <a class="post-delete" href="{% url 'delete_post' post.post_id %}"> Delete </a>
+        <div class="buttons-wrapper">
+            <a class="post-edit" href="{% url 'delete_post' post.post_id %}"> Delete </a>
+            <a class="post-edit" href="{% url 'edit_post' post.post_id %}" class="post-edit"> Edit </a>
+        </div>
         {% endif %}
     </article>
     
