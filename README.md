@@ -7,7 +7,7 @@ A simple blog application built with Django, allowing users to register, login, 
 - User registration and authentication
 - Create, edit, and delete blog posts
 - User-specific post permissions (authors can only modify or delete their own posts)
-- Paginated blog index with 3 posts per page
+- Paginated blog index
 - Flash messages for user interaction feedback
 
 ## Requirements
@@ -19,14 +19,14 @@ A simple blog application built with Django, allowing users to register, login, 
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/yourusername/my-blog-app.git
-    cd my-blog-app
+    git clone https://github.com/AdamJakubczak/my_blog_app.git
+    cd my_blog_app
     ```
 
 2. **Create a virtual environment:**
     ```bash
     python3 -m venv venv
-    source venv/bin/activate  # On Windows: venv\Scripts\activate
+    venv\Scripts\activate # On Mac: source venv/bin/activate 
     ```
 
 3. **Install the dependencies:**
